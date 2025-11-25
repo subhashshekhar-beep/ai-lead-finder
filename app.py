@@ -486,23 +486,23 @@ elif page == "🤖 Auto Contact Finder":
         
         st.markdown("---")
         
-        st.markdown("### ⚙️ Configuration")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            max_leads = min(50, len(leads_df))
-min_leads = min(5, len(leads_df))
-default_leads = min(max_leads, len(leads_df))
-num_to_process = st.slider("How many leads to process?", min_leads, max_leads, default_leads)
-            st.info(f"⏱️ Estimated time: {num_to_process * 6} seconds")
-        
-        with col2:
-            st.markdown("**What will happen:**")
-            st.write("1. Search Google for each company")
-            st.write("2. Visit company websites")
-            st.write("3. Extract emails & phones")
-            st.write("4. Generate email patterns")
-        
+       st.markdown("### ⚙️ Configuration")
+col1, col2 = st.columns(2)
+
+with col1:
+    max_leads = min(50, len(leads_df))
+    min_leads = min(5, len(leads_df))
+    default_leads = min(10, len(leads_df))
+    num_to_process = st.slider("How many leads to process?", 
+                              min_leads, max_leads, default_leads)
+    st.info(f"⏱️ Estimated time: {num_to_process * 6} seconds")
+
+with col2:
+    st.markdown("**What will happen:**")
+    st.write("1. Search Google for each company")
+    st.write("2. Visit company websites")
+    st.write("3. Extract emails & phones")
+    st.write("4. Generate email patterns")        
         st.markdown("---")
         
         if st.button("🚀 Start Auto Contact Finding", type="primary", use_container_width=True):
