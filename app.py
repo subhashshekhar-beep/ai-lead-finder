@@ -490,8 +490,10 @@ elif page == "🤖 Auto Contact Finder":
         col1, col2 = st.columns(2)
         
         with col1:
-            num_to_process = st.slider("How many leads to process?", 5, min(50, len(leads_df)), 
-                                      min(10, len(leads_df)))
+            max_leads = min(50, len(leads_df))
+min_leads = min(5, len(leads_df))
+default_leads = min(max_leads, len(leads_df))
+num_to_process = st.slider("How many leads to process?", min_leads, max_leads, default_leads)
             st.info(f"⏱️ Estimated time: {num_to_process * 6} seconds")
         
         with col2:
